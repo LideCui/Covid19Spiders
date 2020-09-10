@@ -14,16 +14,16 @@ Get splash and run it in Docker
 Already done! But here are the added-ons.
 
 Add following things in the _setting.py_ in your scrapy project:
-`SPLASH_URL = 'http://localhost:8050'
+`SPLASH_URL = 'http://localhost:8050' \
 DOWNLOADER_MIDDLEWARES = {
     'scrapy_splash.SplashCookiesMiddleware': 723,
     'scrapy_splash.SplashMiddleware': 725,
     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
-}
+} \
   SPIDER_MIDDLEWARES = {
     'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
-}
-DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
+} \
+DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter' \
 HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'`
 
 ## Run

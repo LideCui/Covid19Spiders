@@ -98,10 +98,10 @@ SPIDER_MIDDLEWARES = {
 }
 
 # setting of splash server, it may use the url of the docker machine
-SPLASH_URL = 'http://localhost:8050' # 172.17.0.2
+SPLASH_URL = 'http://172.17.0.2:8050' # 172.17.0.2
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
 
 # output format 
-FEED_FORMAT="JSON"
-FEED_URI="covidInfo.json"
+FEED_FORMAT="csv"
+FEED_URI="covidInfo.csv"

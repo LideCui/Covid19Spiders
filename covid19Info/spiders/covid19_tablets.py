@@ -11,7 +11,8 @@ class Covid19TabletsSpider(scrapy.Spider):
             yield SplashRequest(url=url, callback=self.parse, endpoint='render.html')
 
     def parse(self, response):
-        table=response.xpath('//*[@id="dataTable"]')
-        rows=table.xpath('//tbody//tr')
-        print(rows)
-        yield(rows)
+        for row in response.xpath('//*[@id="dataTable"]//tbody//tr'):
+            yield {
+                'activeCase': row.xpath('td[2]//text()').extract_first(),
+                'activeRate': row.xpath('td[3]//text()').extract_first(), 
+            }
